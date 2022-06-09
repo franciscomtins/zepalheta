@@ -12,4 +12,11 @@ Novo cliente
     Dado que acesso o formulario de cadastro de clientes
     Quando faco a inclusao desse cliente:
     ...     Fco Martins     00000014141     Rua dos Bugs, 1000          85999999999
-    Entao devo ver a notificacao:   Cliente cadastrado com sucesso!     
+    Entao devo ver a notificacao:   Cliente cadastrado com sucesso!    
+
+Campos obrigatorios 
+    [Tags]  temp
+    Dado que acesso o formulario de cadastro de clientes
+    Quando faco a inclusao desse cliente:  
+    ...     ${EMPTY}    ${EMPTY}    ${EMPTY}    ${EMPTY}
+    Então devo ver msg informando que os campos do cadastro de clientes são obrigatorios

@@ -52,4 +52,8 @@ Entao devo ver a notificacao:
 
     Wait Until Element Contains         ${TOASTER_SUCESSO}      ${msg_esperada}     5 
 
-
+Então devo ver msg informando que os campos do cadastro de clientes são obrigatorios
+    Wait Until Page Contains    Nome é obrigatório          5 
+    Wait Until Page Contains    CPF é obrigatório           5 
+    Wait Until Page Contains    Endereço é obrigatório      5 
+    Wait Until Page Contains    Telefone é obrigatório      5 
