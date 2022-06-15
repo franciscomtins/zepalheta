@@ -40,25 +40,41 @@ Dado que acesso o formulario de cadastro de clientes
     Wait Until Element Is Visible       ${PAGINA_CLIENTE}        5
     Click Element                       ${PAGINA_CLIENTE} 
 
-Quando faco a inclusao desse cliente:
+E que eu tenho o seguinte cliente:
     [Arguments]     ${nome}     ${cpf}      ${endereco}     ${telefone}
 
     Remove cliente por cpf      ${cpf} 
 
+    Set Test Variable       ${nome} 
+    Set Test Variable       ${cpf} 
+    Set Test Variable       ${endereco}
+    Set Test Variable       ${telefone}
+
+Quando faco a inclusao desse cliente
     Registrar novo cliente      ${nome}     ${cpf}      ${endereco}     ${telefone}
+
+Mas esse cpf já existe no sistema
+    Insert cliente      ${nome}     ${cpf}      ${endereco}     ${telefone}
 
 Entao devo ver a notificacao: 
     [Arguments]     ${msg_esperada}
 
-    Wait Until Element Contains         ${TOASTER_SUCESSO}      ${msg_esperada}     5 
+    Wait Until Element Contains         ${TOASTER_SUCESSO}      ${msg_esperada}     5
+
+Entao devo ver a notificacao de erro: 
+    [Arguments]     ${msg_esperada}
+
+    Wait Until Element Contains         ${TOASTER_ERROR}        ${msg_esperada}     5
 
 Então devo ver msg informando que os campos do cadastro de clientes são obrigatorios
-    Wait Until Page Contains        Nome é obrigatório          5 
-    Wait Until Page Contains        CPF é obrigatório           5 
-    Wait Until Page Contains        Endereço é obrigatório      5 
-    Wait Until Page Contains        Telefone é obrigatório      5 
+    Wait Until Element Contains     ${LABEL_NAME}       Nome é obrigatório          5 
+    Wait Until Element Contains     ${LABEL_CPF}        CPF é obrigatório           5 
+    Wait Until Element Contains     ${LABEL_ADDRESS}    Endereço é obrigatório      5 
+    Wait Until Element Contains     ${LABEL_PHONE}      Telefone é obrigatório      5 
 
 Então devo ver o texto:
     [Arguments]     ${msg_esperada}
 
     Wait Until Page Contains        ${msg_esperada}             5  
+
+    
