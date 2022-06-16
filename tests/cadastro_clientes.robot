@@ -9,11 +9,13 @@ Test Teardown      Encerrar Sessão
 
 *** Test Case ***
 Novo cliente
+    [Tags]  temp
     Dado que acesso o formulario de cadastro de clientes
     E que eu tenho o seguinte cliente:
     ...     Fco Martins     00000014141     Rua dos Bugs, 1000          85999999999    
     Quando faco a inclusao desse cliente
-    Entao devo ver a notificacao:   Cliente cadastrado com sucesso!    
+    Entao devo ver a notificacao:   Cliente cadastrado com sucesso!  
+    E esse cliente deve ser exibido na lista  
 
 Cliente duplicado
     Dado que acesso o formulario de cadastro de clientes

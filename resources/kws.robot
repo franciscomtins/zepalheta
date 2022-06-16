@@ -76,7 +76,15 @@ Então devo ver o texto:
 
     Wait Until Page Contains        ${msg_esperada}             5  
 
+E esse cliente deve ser exibido na lista
+    ${cpf_formatado}=           Format cpf      ${cpf}
+    Go Back
+    Wait Until Element Is Visible       ${CLIENTE_LISTA}    
+    Table Should Contain                ${CLIENTE_LISTA}           ${cpf_formatado}
+
+
 ### Keywords Cadastro equipos
+
 Dado que acesso o formulario de cadastro de equipos
     Wait Until Element Is Visible       ${NAVEGAR_EQUIPO}       5
     Click Element                       ${NAVEGAR_EQUIPO}   
@@ -100,4 +108,30 @@ Então devo ver msg informando que os campos do cadastro de equipo são obrigato
 
 Mas esse equipo já existe no sistema
     Inserir Equipo      ${nome}     ${diaria}  
+
+
+
+### Exclusão do cliente
+
+Dado que eu tenha um cliente indesejado:
+    [Arguments]                 ${nome}     ${cpf}      ${endereco}     ${telefone}
+    
+    Remove cliente por cpf      ${cpf} 
+    Insert cliente              ${nome}     ${cpf}      ${endereco}     ${telefone}
+    
+    Set Test Variable           ${cpf} 
+
+E acesso a lista de clientes
+    Go to clientes
+
+Quando eu removo esse cliente
+
+    ${cpf_formatado}=       Format cpf      ${cpf}
+    Set Test Variable       ${cpf_formatado}
+
+    Go to detalhes cliente        ${cpf_formatado}
+    Click apagar cliente  
+
+E esse cliente não deve aparecer na lista
+    Wait Until Page Does Not Contain         ${cpf_formatado} 
 
