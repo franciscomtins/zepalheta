@@ -35,8 +35,7 @@ Devo ver um toaster com a mensagem
 
 ##Clientes
 Dado que acesso o formulario de cadastro de clientes
-    Wait Until Element Is Visible       ${NAVEGAR_CLIENTE}       5
-    Click Element                       ${NAVEGAR_CLIENTE}  
+    Go to clientes
     Wait Until Element Is Visible       ${PAGINA_CLIENTE}        5
     Click Element                       ${PAGINA_CLIENTE} 
 
