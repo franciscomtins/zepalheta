@@ -38,3 +38,10 @@ def remove_cliente_por_cpf(cpf):
     print(query)
 
     execute_q(query)
+
+def remove_equipo_por_nome(nome):
+
+    query = "delete from public.equipos where name = '{}';".format(nome)    
+    print(query)
+
+    execute_q(query)

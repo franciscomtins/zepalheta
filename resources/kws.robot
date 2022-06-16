@@ -31,7 +31,7 @@ Devo ver a area logada
 
 Devo ver um toaster com a mensagem
     [Arguments]     ${expect_messagem}    
-    Wait Until Element Contains         ${TOASTER_ERROR}       ${expect_messagem}       5            
+    Wait Until Element Contains         ${TOASTER_ERROR_P}       ${expect_messagem}       5            
 
 ##Clientes
 Dado que acesso o formulario de cadastro de clientes
@@ -77,4 +77,25 @@ Então devo ver o texto:
 
     Wait Until Page Contains        ${msg_esperada}             5  
 
-    
+### Keywords Cadastro equipos
+Dado que acesso o formulario de cadastro de equipos
+    Wait Until Element Is Visible       ${NAVEGAR_EQUIPO}       5
+    Click Element                       ${NAVEGAR_EQUIPO}   
+    Wait Until Element Is Visible       ${PAGINA_EQUIPO}        5
+    Click Element                       ${PAGINA_EQUIPO}
+
+E que tenho o seguinte equipo
+    [Arguments]     ${nome}     ${diaria}
+
+    Remove equipo por nome      ${nome}      
+
+    Set Test Variable       ${nome} 
+    Set Test Variable       ${diaria}
+
+Quando faco a inclusao desse equipo
+    Registrar novo equipo       ${nome}     ${diaria}
+
+Então devo ver msg informando que os campos do cadastro de equipo são obrigatorios  
+    Wait Until Element Contains     ${LABEL_NAME_EQ}    Nome do equipo é obrigatório        5
+    Wait Until Element Contains     ${LABEL_DIARIA}     Diária do equipo é obrigatória      5
+

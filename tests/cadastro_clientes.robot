@@ -16,7 +16,6 @@ Novo cliente
     Entao devo ver a notificacao:   Cliente cadastrado com sucesso!    
 
 Cliente duplicado
-    [Tags]  temp
     Dado que acesso o formulario de cadastro de clientes
     E que eu tenho o seguinte cliente:
     ...     Adrian Smith     00000014141     Rua dos Bugs, 2000         11999999991  

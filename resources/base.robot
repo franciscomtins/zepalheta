@@ -4,6 +4,7 @@ Library         libs/db.py
 
 Resource        kws.robot
 Resource        pages/ClientesPage.robot
+Resource        pages/EquipoPage.robot
 Resource        components/Slidebar.robot   
 Resource        components/Toaster.robot 
 
