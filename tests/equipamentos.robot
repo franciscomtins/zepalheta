@@ -19,7 +19,9 @@ Campos obrigatorios
     Quando faco a inclusao desse equipo
     Então devo ver msg informando que os campos do cadastro de equipo são obrigatorios
 
-
-#Equipamento duplicado
-
-    Sleep       3
+Equipamento duplicado
+    Dado que acesso o formulario de cadastro de equipos
+    E que tenho o seguinte equipo       Triangulo  15
+    Mas esse equipo já existe no sistema
+    Quando faco a inclusao desse equipo
+    Devo ver um toaster com a mensagem  Ocorreu um error na criação de um equipo, tente novamente mais tarde!

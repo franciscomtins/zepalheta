@@ -99,3 +99,6 @@ Então devo ver msg informando que os campos do cadastro de equipo são obrigato
     Wait Until Element Contains     ${LABEL_NAME_EQ}    Nome do equipo é obrigatório        5
     Wait Until Element Contains     ${LABEL_DIARIA}     Diária do equipo é obrigatória      5
 
+Mas esse equipo já existe no sistema
+    Inserir Equipo      ${nome}     ${diaria}  
+
