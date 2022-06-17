@@ -2,6 +2,7 @@
 Documentation       Camada de serviços do projeto de automação
 
 Library             RequestsLibrary
+Resource            helpers.robot            
 
 *** Variables ***
 ${base_api_url}     http://zepalheta-api:3333 
