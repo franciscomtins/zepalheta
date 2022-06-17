@@ -1,7 +1,7 @@
 ***Settings ***
 Documentation       Cadastro de equipamentos
 
-Resource            ${EXECDIR}/resources/base.robot
+Resource            ${EXECDIR}/web/resources/base.robot
 
 Test Setup         Logar na Sessão
 Test Teardown      Encerrar Sessão
