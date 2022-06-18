@@ -53,6 +53,18 @@ Get customers
     [return]        ${resp}
 
 
+Get unique customers 
+    [Arguments]     ${user_id}
+
+    Create Session      zp-api      ${base_api_url}
+
+    ${token}=       Get Session token
+    ${headers}=     Create Dictionary       Content-Type=application/json       Authorization=${token}
+    
+    ${resp}=        Get Request     zp-api      /customers/${user_id}           headers=${headers}
+    [return]        ${resp}
+
+
 Delete custumer
     [Arguments]     ${cpf}
 
