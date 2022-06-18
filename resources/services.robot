@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation       Camada de serviços do projeto de automação
 
+Library             Collections
 Library             RequestsLibrary
 Resource            helpers.robot            
 
@@ -43,6 +44,19 @@ Post custumer
     [return]            ${resp}
 
 
+Put custumer  
+    [Arguments]     ${payload}      ${user_id}
+
+    Create Session      zp-api      ${base_api_url} 
+
+    ${token}=           Get Session token
+    &{headers}=         Create Dictionary   Content-Type=application/json   Authorization=${token}
+
+    ${resp}=            Put Request        zp-api      /customers/${user_id}      data=${payload}     headers=${headers}
+
+    [return]            ${resp}
+
+
 Get customers   
     Create Session      zp-api      ${base_api_url}
 
@@ -71,7 +85,9 @@ Delete custumer
     ${token}=           Get Session token
     &{headers}=         Create Dictionary   Content-Type=application/json   Authorization=${token}
 
-    Delete Request      zp-api      /customers/${cpf}        headers=${headers}
+     ${resp}=           Delete Request      zp-api      /customers/${cpf}        headers=${headers}
+
+     [return]           ${resp}
 
 
 
