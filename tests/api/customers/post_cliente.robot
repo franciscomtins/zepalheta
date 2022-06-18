@@ -17,7 +17,7 @@ Nome é obrigatorio
 
    #&{payload}=         Create Dictionary   cpf=000.000.161-61  address=Rua 8   phone_number=85988997766
 
-    ${payload}          Get json        custumers/no_name.json
+    ${payload}          Get json       custumers/no_name.json
     ${resp}=            Post custumer  ${payload}
 
     Status Should Be    400     ${resp}
@@ -27,7 +27,7 @@ Cpf é obrigatorio
 
     #&{payload}=         Create Dictionary   name=Jess H.    address=Rua 8   phone_number=85988997766
 
-    ${payload}          Get json        custumers/no_cpf.json 
+    ${payload}          Get json       custumers/no_cpf.json 
     ${resp}=            Post custumer  ${payload}
 
     Status Should Be    400     ${resp}
@@ -37,7 +37,7 @@ Endereço é obrigatorio
 
     #&{payload}=         Create Dictionary   name=Jess H.    cpf=000.000.161-61  phone_number=85988997766
 
-    ${payload}          Get json        custumers/no_address.json
+    ${payload}          Get json       custumers/no_address.json
     ${resp}=            Post custumer  ${payload}
 
     Status Should Be    400     ${resp}
@@ -47,7 +47,7 @@ Telefone é obrigatorio
 
     #&{payload}=         Create Dictionary   name=Jess H.    cpf=000.000.161-61  address=Rua 8
 
-    ${payload}          Get json        custumers/no_phone.json
+    ${payload}          Get json       custumers/no_phone.json
     ${resp}=            Post custumer  ${payload}
 
     Status Should Be    400     ${resp}
