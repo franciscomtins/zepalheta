@@ -90,4 +90,15 @@ Delete custumer
      [return]           ${resp}
 
 
+Post equipos
+    [Arguments]        ${payload}
+
+    Create Session      zp-api                  ${base_api_url}
+
+    ${token}=           Get Session token
+    ${headers}=         Create Dictionary       Content-Type=application/json       Authorization=${token}
+
+    ${resp}=            Post Request            zp-api      /equipos        data=${payload}     headers=${headers}
+
+    [return]            ${resp}
 

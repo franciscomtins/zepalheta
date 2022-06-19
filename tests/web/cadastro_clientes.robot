@@ -3,8 +3,8 @@ Documentation       Cadastro de clientes
 
 Resource            ${EXECDIR}/resources/base.robot
 
-Test Setup         Logar na Sessão
-Test Teardown      Encerrar Sessão
+Suite Setup         Logar na Sessão
+Suite Teardown      Encerrar Sessão
 
 
 *** Test Case ***

@@ -14,6 +14,8 @@ ${CLIENTE_LISTA}        css:table
 Registrar novo cliente
     [Arguments]     ${nome}     ${cpf}      ${endereco}     ${telefone}
 
+    Reload Page
+
     Input Text      id:name             ${nome}  
     Input Text      id:cpf              ${cpf}  
     Input Text      id:address          ${endereco}
